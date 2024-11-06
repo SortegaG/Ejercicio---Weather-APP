@@ -10,7 +10,7 @@ const apiKey = process.env.API_KEY
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/', function (req, res) {
-    let city = req.body.city;
+    let city = req.body.city; // este city viene del formulario name='city'
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 
     request(url, function (err, response, body) {
